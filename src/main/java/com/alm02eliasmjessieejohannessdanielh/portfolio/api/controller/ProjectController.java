@@ -4,12 +4,13 @@ import com.alm02eliasmjessieejohannessdanielh.portfolio.domain.Project;
 import com.alm02eliasmjessieejohannessdanielh.portfolio.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
 
-@RestController
+@Controller
 @RequestMapping("api/v2/")
 public class ProjectController {
 
@@ -26,9 +27,9 @@ public class ProjectController {
     }
 
     @PostMapping("projects")
-    public ResponseEntity<Object> addProject(@RequestBody Project project) {
-        Project addedProject = projectService.addProject(project);
-        return ResponseEntity.ok(addedProject);
+    public String addProject(Project project) {
+        projectService.addProject(project);
+        return "redirect:/";
     }
 
     @DeleteMapping("projects/{id}")

@@ -7,7 +7,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">ALM</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About?</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a href="/create-project"><button type="button" class="btn btn-primary" >Create project</button></a>
+            </form>
+        </div>
+
+    </nav>
+
     <h1 class="title">This is a stupid title</h1>
+
     <div class="container">
         <div class="row">
             <div th:each="project: ${projectList}">
@@ -17,7 +37,7 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-primary" href="/createproject">Add Project</button>
+    <a href="/create-project"><button type="button" class="btn btn-primary" >Create project</button></a>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>

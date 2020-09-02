@@ -27,7 +27,7 @@ public class PageController {
         return "index";
     }
 
-    @GetMapping("/createproject")
+    @GetMapping("/create-project")
     public String projectForm(Model model) {
         Project project = new Project();
         model.addAttribute("project", project);
