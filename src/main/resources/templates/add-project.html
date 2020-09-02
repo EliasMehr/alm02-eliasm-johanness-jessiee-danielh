@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th=http://www.thymeleaf.org>
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Add Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-$END$
+
+<div class="container">
+
+    <h1>Add project to the portfolio!</h1>
+
+    <form method="post" action="#">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" >
+        </div>
+
+        <div class="form-group">
+            <label for="githubLink">Github</label>
+            <input type="text" class="form-control" id="githubLink" placeholder="https://github.com/....">
+        </div>
+        <div class="form-group">
+            <label for="programLang">Programming languages used</label>
+            <input type="text" class="form-control" id="programLang" placeholder="ex Java, JavaScript...">
+        </div>
+        <div class="form-group">
+            <label for="desc">Description</label>
+            <textarea class="form-control" id="desc" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="picture">EVENTUELL BILD???</label>
+            <input type="file" class="form-control-file" id="picture">
+        </div>
+        <button type="submit" class="btn btn-primary">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add Project</button>
+
+    </form>
+
+</div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>

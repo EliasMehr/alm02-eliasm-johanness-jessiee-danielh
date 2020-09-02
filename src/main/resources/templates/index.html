@@ -4,23 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Homepage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
     <h1 class="title">This is a stupid title</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    <h1>Project list</h1>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-<!--            <tr th:each="project: ${projectList}">-->
-<!--                <td th:text="${project.de}">-->
-<!--            </tr>-->
-            <td th:text="hej"></td>
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
+            <div th:each="project: ${projectList}">
+                <div th:text="${project.title}"/>
+                <div th:text="${project.description}"/>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" href="/createproject">Add Project</button>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>

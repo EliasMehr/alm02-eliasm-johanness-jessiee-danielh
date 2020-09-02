@@ -27,7 +27,6 @@ public class ProjectService {
     @Transactional
     public Project addProject(Project project) {
         return repository.save(project);
-
     }
 
     @Transactional

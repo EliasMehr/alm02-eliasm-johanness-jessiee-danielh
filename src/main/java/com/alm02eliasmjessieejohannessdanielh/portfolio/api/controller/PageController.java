@@ -26,4 +26,11 @@ public class PageController {
         model.addAttribute("projectList", projectList);
         return "index";
     }
+
+    @GetMapping("/createproject")
+    public String projectForm(Model model) {
+        Project project = new Project();
+        model.addAttribute("project", project);
+        return "add-project";
+    }
 }
