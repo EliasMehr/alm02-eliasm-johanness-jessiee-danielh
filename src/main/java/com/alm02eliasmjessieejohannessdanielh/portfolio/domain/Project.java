@@ -18,13 +18,13 @@ public class Project {
     @GeneratedValue(strategy = AUTO)
     private UUID id;
 
-    @NotEmpty
+    @NotEmpty(message = "Title cannot be empty")
     private String title;
 
-    @Size(min = 2, max = 255)
+    @Size(min = 1, max = 255, message = "Description must be between 1-255 characters")
     private String description;
 
-    @NotEmpty
+    @NotEmpty(message = "Must provide one contributor")
     private String contributors;
 
     // Fix regex for github link validaton
