@@ -1,8 +1,7 @@
 package com.alm02eliasmjessieejohannessdanielh.portfolio.api.controller;
 
+import com.alm02eliasmjessieejohannessdanielh.portfolio.database.MockDatabase;
 import com.alm02eliasmjessieejohannessdanielh.portfolio.domain.Project;
-import com.alm02eliasmjessieejohannessdanielh.portfolio.service.ProjectService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,28 +12,31 @@ import java.util.UUID;
 @RequestMapping("api/v2/")
 public class ProjectController {
 
-    private final ProjectService projectService;
-
-    @Autowired
-    public ProjectController(ProjectService projectService) {
-        this.projectService = projectService;
-    }
+    private MockDatabase database = new MockDatabase();
 
     @GetMapping("projects")
     public List<Project> getAllProjects() {
-        return projectService.getAllProjects();
+        return database.getAllProjects();
     }
 
     @PostMapping("projects")
     public ResponseEntity<Object> addProject(@RequestBody Project project) {
-        Project addedProject = projectService.addProject(project);
-        return ResponseEntity.ok(addedProject);
+        try {
+            database.addProject(project);
+            return ResponseEntity.ok(project);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @DeleteMapping("projects/{id}")
-    public ResponseEntity<Project> deleteProject(@PathVariable UUID id) {
-        Project project = projectService.deleteProject(id);
-        return ResponseEntity.accepted().body(project);
+    public ResponseEntity<Object> deleteProject(@PathVariable UUID id) {
+        try {
+            database.deleteProject(id);
+            return ResponseEntity.ok("Deleted successfully");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
 }
