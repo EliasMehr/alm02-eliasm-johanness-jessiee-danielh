@@ -1,7 +1,6 @@
 package com.alm02eliasmjessieejohannessdanielh.portfolio.domain;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.UUID;
 
@@ -16,7 +15,7 @@ public class Project {
 
     private String contributors;
 
-    @Pattern(regexp = "^https://github.com/")
+    @Pattern(regexp = "^https://github.com/.*$")
     private String githubLink;
 
     private String codingLanguage;
