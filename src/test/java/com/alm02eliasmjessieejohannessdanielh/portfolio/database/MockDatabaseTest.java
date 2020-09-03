@@ -7,8 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.UUID;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class MockDatabaseTest {
 
@@ -51,15 +57,28 @@ class MockDatabaseTest {
         assertThrows(IllegalArgumentException.class, () -> database.addProject(project), "Link must start with -> https://github.com");
     }
 
-    @Test
-    void getAllProjects() {
-    }
-
+    @DisplayName("should delete project in DB list")
     @Test
     void deleteProject() {
+        Project projectToDelete = new Project();
+        projectToDelete.setTitle("Title");
+        projectToDelete.setGithubLink("https://github.com/real-project");
+
+        database.addProject(projectToDelete);
+        database.deleteProject(projectToDelete.getId());
+
+        assertThrows(NoSuchElementException.class, () -> database.findById(projectToDelete.getId()));
     }
 
+    @DisplayName("should find project in DB list")
     @Test
     void findById() {
+        Project projectToFind = new Project();
+        projectToFind.setTitle("Title");
+        projectToFind.setGithubLink("https://github.com/real-project");
+
+        database.addProject(projectToFind);
+
+        assertThat(database.findById(projectToFind.getId())).isEqualTo(projectToFind);
     }
 }

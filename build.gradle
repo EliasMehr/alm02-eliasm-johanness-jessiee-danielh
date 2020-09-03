@@ -51,6 +51,13 @@ jacocoTestReport() {
         csv.enabled false
         html.destination file("${buildDir}/jacocoHtml")
     }
+//    excludes main class in jacoco report
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: '**/PortfolioApplication.*')
+        }))
+    }
+
 }
 
 task("stage") {
