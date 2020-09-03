@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -26,14 +27,14 @@ public class PageController implements WebMvcConfigurer {
     }
 
     @GetMapping("/add-project")
-    public String projectForm(Model model) {
+    public String viewProjectForm(Model model) {
         Project project = new Project();
         model.addAttribute("project", project);
         return "add-project";
     }
 
     @PostMapping("/add-project")
-    public String addProject(@Valid Project project, BindingResult bindingResult) {
+    public String addProject(@Valid @ModelAttribute("project") Project project, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()) {
             return "add-project";
