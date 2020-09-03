@@ -39,8 +39,8 @@ public class MockDatabase {
     }
 
     private boolean isValidProject(Project project) {
-        if (project.getTitle().equals(null) || project.getTitle().equals("")) {
-            throw new IllegalArgumentException("Title cannot be empty");
+        if (project.getTitle() == null || project.getTitle().equals("")) {
+            throw new IllegalArgumentException("Title cannot be empty or null");
         }
         if (!project.getGithubLink().startsWith("https://github.com/")) {
             throw new IllegalArgumentException("Link must start with -> https://github.com");

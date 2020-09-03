@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Project {
 
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     private String title;
 
