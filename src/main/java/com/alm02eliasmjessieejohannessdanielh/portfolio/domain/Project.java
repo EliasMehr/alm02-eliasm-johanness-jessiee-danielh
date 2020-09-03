@@ -1,36 +1,19 @@
 package com.alm02eliasmjessieejohannessdanielh.portfolio.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-
 import java.util.UUID;
 
-import static javax.persistence.GenerationType.*;
-
-@Entity
 public class Project {
 
-    @Id
-    @GeneratedValue(strategy = AUTO)
     private UUID id;
 
-    @NotEmpty(message = "Title cannot be empty")
     private String title;
 
-    @Size(min = 1, max = 255, message = "Description must be between 1-255 characters")
     private String description;
 
-    @NotEmpty(message = "Must provide one contributor")
     private String contributors;
 
-    // Fix regex for github link validaton
     private String githubLink;
 
-    @NotEmpty
     private String codingLanguage;
 
 
