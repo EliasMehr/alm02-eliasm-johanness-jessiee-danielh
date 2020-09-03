@@ -1,17 +1,22 @@
 package com.alm02eliasmjessieejohannessdanielh.portfolio.domain;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.UUID;
 
 public class Project {
 
     private UUID id = UUID.randomUUID();
 
+    @NotEmpty
     private String title;
 
     private String description;
 
     private String contributors;
 
+    @Pattern(regexp = "^https://github.com/")
     private String githubLink;
 
     private String codingLanguage;
