@@ -64,6 +64,8 @@ task("stage") {
     dependsOn(clean)
     dependsOn(build)
     dependsOn(jacocoTestReport)
+
+    tasks.build.mustRunAfter(clean)
 }
 
 tasks.withType(Test) {
