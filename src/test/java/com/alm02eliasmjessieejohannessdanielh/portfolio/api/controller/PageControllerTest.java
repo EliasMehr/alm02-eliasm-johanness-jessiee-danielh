@@ -77,7 +77,7 @@ class PageControllerTest {
         UUID mockUUID = UUID.randomUUID();
 
         mockMvc.perform(MockMvcRequestBuilders
-                .delete("/delete-project/" + mockUUID.toString())
+                .get("/delete-project/" + mockUUID.toString())
         ).andExpect(status().is3xxRedirection());
     }
 }
