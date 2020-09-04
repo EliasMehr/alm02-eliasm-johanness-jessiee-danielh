@@ -25,12 +25,3 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Upload Test Result
-      uses: actions/upload-artifact@v2
-        with:
-          name: Jacoco Test Resport
-          path: build/jacocoHtml/index.html
-    - name: Upload Jar file
-      uses: actions/upload-artifact@v2
-        with:
-          name: .jar file
-          path: build/libs/portfolio-0.0.1-SNAPSHOT.jar
