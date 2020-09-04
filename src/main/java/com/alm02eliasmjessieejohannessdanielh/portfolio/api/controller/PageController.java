@@ -17,7 +17,6 @@ public class PageController implements WebMvcConfigurer {
 
     MockDatabase database = new MockDatabase();
 
-
     @GetMapping("/")
     public String loadAllProjects(Model model) {
         List<Project> projectList = database.getAllProjects();
@@ -43,7 +42,7 @@ public class PageController implements WebMvcConfigurer {
         return "redirect:/";
     }
 
-    @DeleteMapping("/delete-project/{projectId}")
+    @GetMapping("/delete-project/{projectId}")
     public String deleteProject(@PathVariable UUID projectId) {
         database.deleteProject(projectId);
         return "redirect:/";
