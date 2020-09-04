@@ -40,6 +40,8 @@ class MockDatabaseTest {
         assertThat(projectInDb.getTitle()).isEqualTo(project.getTitle());
         assertThat(projectInDb.getDescription()).isEqualTo(project.getDescription());
         assertThat(projectInDb.getId()).isEqualTo(project.getId());
+        assertThat(projectInDb.getContributors()).isEqualTo(project.getContributors());
+        assertThat(projectInDb.getCodingLanguage()).isEqualTo(project.getCodingLanguage());
         assertThat(projectInDb.getId()).isNotNull();
     }
 
