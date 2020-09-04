@@ -25,5 +25,4 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag portfolio:$(date +%s)
+      
