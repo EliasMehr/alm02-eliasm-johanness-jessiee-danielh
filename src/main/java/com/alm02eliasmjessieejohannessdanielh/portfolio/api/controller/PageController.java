@@ -5,13 +5,12 @@ import com.alm02eliasmjessieejohannessdanielh.portfolio.domain.Project;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 public class PageController implements WebMvcConfigurer {
@@ -36,15 +35,17 @@ public class PageController implements WebMvcConfigurer {
     @PostMapping("/add-project")
     public String addProject(@Valid @ModelAttribute("project") Project project, BindingResult bindingResult) {
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return "add-project";
         }
 
         database.addProject(project);
         return "redirect:/";
-
     }
 
-
-
+    @DeleteMapping("/delete-project/{projectId}")
+    public String deleteProject(@PathVariable UUID projectId) {
+        database.deleteProject(projectId);
+        return "redirect:/";
+    }
 }
